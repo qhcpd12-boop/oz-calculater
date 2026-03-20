@@ -1,153 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>계산기 서비스(feature test)</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container calculator-container">
-      <h1 class="text-center mb-4">계산기 서비스</h1>
-      <div id="display" class="form-control">0</div>
-      <div class="row g-2">
-        <!-- 버튼들 생성 -->
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('7')"
-          >
-            7
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('8')"
-          >
-            8
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('9')"
-          >
-            9
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-warning calc-btn w-100"
-            onclick="setOperator('/')"
-          >
-            ÷
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('4')"
-          >
-            4
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('5')"
-          >
-            5
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('6')"
-          >
-            6
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-warning calc-btn w-100"
-            onclick="setOperator('*')"
-          >
-            ×
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('1')"
-          >
-            1
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('2')"
-          >
-            2
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('3')"
-          >
-            3
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-warning calc-btn w-100"
-            onclick="setOperator('-')"
-          >
-            -
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-secondary calc-btn w-100"
-            onclick="appendNumber('0')"
-          >
-            0
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-danger calc-btn w-100"
-            onclick="clearDisplay()"
-          >
-            C
-          </button>
-        </div>
-        <div class="col-3">
-          <button class="btn btn-primary calc-btn w-100" onclick="calculate()">
-            =
-          </button>
-        </div>
-        <div class="col-3">
-          <button
-            class="btn btn-warning calc-btn w-100"
-            onclick="setOperator('+')"
-          >
-            +
-          </button>
-        </div>
-      </div>
-      <div id="result" class="alert alert-info result-alert d-none"></div>
-      <div id="historyBox" class="mt-4">
-        <h3 class="mt-4">계산 기록</h3>
-        <ul id="historyList" class="list-group mt-2"></ul>
-      </div>
-    </div>
-    <script src="calculator.js"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+
+<style>
+body {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:#eee;
+}
+
+.calculator {
+  background:#222;
+  padding:20px;
+  border-radius:20px;
+}
+
+#display {
+  width:220px;
+  height:50px;
+  font-size:24px;
+  text-align:right;
+  margin-bottom:10px;
+}
+
+button {
+  width:50px;
+  height:50px;
+  margin:3px;
+  font-size:18px;
+}
+</style>
+
+</head>
+<body>ㄴ
+
+<div class="calculator">
+
+  <!-- 디스플레이 -->
+  <input type="text" id="display" value="0" readonly><br>
+
+  <!-- 버튼 -->
+  <button onclick="inputNumber('7')">7</button>
+  <button onclick="inputNumber('8')">8</button>
+  <button onclick="inputNumber('9')">9</button>
+  <button onclick="setOperator('/')">÷</button><br>
+
+  <button onclick="inputNumber('4')">4</button>
+  <button onclick="inputNumber('5')">5</button>
+  <button onclick="inputNumber('6')">6</button>
+  <button onclick="setOperator('*')">×</button><br>
+
+  <button onclick="inputNumber('1')">1</button>
+  <button onclick="inputNumber('2')">2</button>
+  <button onclick="inputNumber('3')">3</button>
+  <button onclick="setOperator('-')">-</button><br>
+
+  <button onclick="inputNumber('0')">0</button>
+  <button onclick="clearAll()">C</button>
+  <button onclick="calculate()">=</button>
+  <button onclick="setOperator('+')">+</button><br>
+
+  <!-- 백스페이스 -->
+  <button onclick="backspace()">←</button>
+
+</div>
+
+<script src="calculator.js"></script>
+
+</body>
 </html>
